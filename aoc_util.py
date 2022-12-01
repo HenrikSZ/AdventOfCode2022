@@ -9,7 +9,7 @@ def download_data_set(day:int) -> list[str]:
 
     with    open("session_cookie.txt") as session_file, \
             open(f"data_day{day}.txt", "w") as data_file:
-        url = f"https://adventofcode.com/2021/day/{day}/input"
+        url = f"https://adventofcode.com/2022/day/{day}/input"
         session_cookie = session_file.readline()
         cookies = { "session": session_cookie }
 
