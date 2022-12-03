@@ -1,5 +1,5 @@
 ###############################################################################
-# Day 3, Task 2                                                               #
+# Day 3, Task 1                                                               #
 ###############################################################################
 
 import aoc_util
@@ -16,10 +16,11 @@ CrZsJsPPZsGzwwsLwLmpwMDw"""
 def task(data_set: list[str]) -> int:
     prios = 0
 
-    for line in data_set:
-        letter = set(line[:len(line)//2]) \
-            .intersection(set(line[len(line)//2:])) \
-            .pop()
+    for i in range(0, len(data_set), 3):
+
+        letter = set(data_set[i]) \
+            .intersection(set(data_set[i+1])) \
+            .intersection(set(data_set[i+2])).pop()
 
         ord_letter = ord(letter)
 
