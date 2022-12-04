@@ -1,5 +1,5 @@
 ###############################################################################
-# Day 4, Task 1                                                               #
+# Day 5, Task 1                                                               #
 ###############################################################################
 
 import aoc_util
@@ -13,8 +13,8 @@ data_str = """2-4,6-8
 2-6,4-8"""
 
 
-def is_fully_contained(a, b, x, y):
-    return x <= a and b <= y
+def is_partly_contained(a, b, x, y):
+    return a <= y and b >= x
 
 
 def task(data_set: list[str]) -> int:
@@ -25,7 +25,7 @@ def task(data_set: list[str]) -> int:
         a, b = [int(x) for x in first.split("-")]
         x, y = [int(x) for x in second.split("-")]
 
-        if is_fully_contained(a, b, x, y) or is_fully_contained(x, y, a, b):
+        if is_partly_contained(a, b, x, y) or is_partly_contained(x, y, a, b):
             acc += 1
 
 
