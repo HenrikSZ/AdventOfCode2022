@@ -1,5 +1,5 @@
 ###############################################################################
-# Day 5, Task 1                                                               #
+# Day 5, Task 2                                                               #
 ###############################################################################
 
 import aoc_util
@@ -34,8 +34,9 @@ def perform_restack(line: str, l: list[list[str]] = []):
     from_stack = int(instructions[3])
     to_stack = int(instructions[5])
 
-    for _ in range(count):
-        l[to_stack - 1].append(l[from_stack - 1].pop())
+    stack = l[from_stack - 1][-count:]
+    l[from_stack - 1] = l[from_stack - 1][:-count]
+    l[to_stack - 1].extend(stack)
 
 
 def task(data_set: list[str]) -> int:
