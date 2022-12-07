@@ -18,8 +18,8 @@ def task(data_set: list[str]) -> int:
     for i in range(3, len(l)):
         starting_sequence = True
 
-        for j in range(i - 2, i + 1):
-            for k in range(i - 3, j):
+        for j in range(i - 12, i + 1):
+            for k in range(i - 13, j):
                 if l[j] == l[k]:
                     starting_sequence = False
                     break
