@@ -1,8 +1,9 @@
 ###############################################################################
-# Day 7, Task 1                                                               #
+# Day 7, Task 2                                                               #
 ###############################################################################
 
 from collections import defaultdict
+import bisect
 import aoc_util
 
 day = 7
@@ -55,7 +56,12 @@ def task(data_set: list[str]) -> int:
                 for p in paths:
                     file_to_size[p] += int(args[0])
 
-    return sum(x for x in file_to_size.values() if x <= 100_000)
+    sizes = list(file_to_size.values())
+    sizes.sort()
+    space_used = file_to_size["/"]
+    to_delete = space_used - (70_000_000 - 30_000_000)
+
+    return sizes[bisect.bisect_left(sizes, to_delete)]
 
 
 aoc_util.run_with_data_str(task, data_str)
